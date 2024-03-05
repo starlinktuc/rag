@@ -7,8 +7,8 @@ binding = "AI"
 
 [[d1_databases]]
 binding = "DATABASE"
-database_name = "ai-example"
-database_id = "2a210384-148b-4c31-bbad-c2873f649f9c"
+database_name = "dni"
+database_id = "ceb34e17-751e-42a6-8230-9fdb8c828167"
 
 [[unsafe.bindings]]
 name = "VECTOR_INDEX"
