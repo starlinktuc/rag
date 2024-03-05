@@ -1,4 +1,4 @@
-name = "ai-example"
+name = "cuit"
 main = "src/index.js"
 compatibility_date = "2024-01-10"
 
@@ -10,4 +10,7 @@ binding = "DATABASE"
 database_name = "dni"
 database_id = "ceb34e17-751e-42a6-8230-9fdb8c828167"
 
-
+[[unsafe.bindings]]
+name = "VECTOR_INDEX"
+type = "vectorize"
+index_name = "tutorial-index"
