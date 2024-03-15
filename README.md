@@ -1,5 +1,6 @@
-# cloudflare-retrieval-augmented-generation-example
+### CuitGPT RAG 
+## retrieval-augmented-generation over Cloudflare
 
-[Read the tutorial to learn how to build this application](https://developers.cloudflare.com/workers-ai/tutorials/build-a-retrieval-augmented-generation-ai/)
+[CuitGPT](https://cuitgpt.nicar.workers.dev)
 
 

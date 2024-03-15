@@ -18,12 +18,12 @@ app.post('/notes', async (c) => {
 
   const record = results.length ? results[0] : null
 
-  if (!record) c.throw(500, "Failed to create note")
+  if (!record) c.throw(500, "Fallo para crear el registro")
 
   const { data } = await ai.run('@cf/baai/bge-base-en-v1.5', { text: [text] })
   const values = data[0]
 
-  if (!values) c.throw(500, "Failed to generate vector embedding")
+  if (!values) c.throw(500, "Fallo para generar el Vector Embebido")
 
   const { id } = record
   const inserted = await c.env.VECTOR_INDEX.upsert([
@@ -39,7 +39,9 @@ app.post('/notes', async (c) => {
 app.get('/ui', async (c) => {
 	return c.html(ui);
 })
-
+app.get('/', async (c) => {
+	return c.html(write);
+})
 app.get('/write', async (c) => {
 	return c.html(write);
 })
@@ -47,7 +49,7 @@ app.get('/write', async (c) => {
 app.get('/', async (c) => {
   const ai = new Ai(c.env.AI);
 
-  const question = c.req.query('text') || "What is the square root of 9?"
+  const question = c.req.query('text') || "¿Cuánto es la raiz cuadrada de 64?"
 
   const embeddings = await ai.run('@cf/baai/bge-base-en-v1.5', { text: question })
   const vectors = embeddings.data[0]
@@ -69,7 +71,7 @@ app.get('/', async (c) => {
     ? `Context:\n${notes.map(note => `- ${note}`).join("\n")}`
     : ""
 
-  const systemPrompt = `When answering the question or responding, use the context provided, if it is provided and relevant.`
+  const systemPrompt = `Cuando respondas una pregunta o respondas, uusa el contexto provisto, si este resulta relevante, como la direccion anterior o nombre completo`
 
   const { response: answer } = await ai.run(
     '@cf/meta/llama-2-7b-chat-int8',
