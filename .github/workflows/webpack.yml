@@ -26,5 +26,4 @@ jobs:
       run: |
         npm install
         npm audit fix --force
-        npm i wrangler
-        wrangler dev
+        npm run start
