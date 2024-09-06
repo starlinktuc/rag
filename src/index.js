@@ -24,6 +24,7 @@ app.post('/notes', async (c) => {
   ]);
   return c.json({ id, text, inserted });
 })
+//Routes de la app
 app.get('/ui', async (c) => {
 	return c.html(ui);
 })
@@ -33,10 +34,10 @@ app.get('/', async (c) => {
 app.get('/write', async (c) => {
 	return c.html(write);
 })
-
-app.get('/', async (c) => {
+// Comienza el método Principal:
+app.get('/', async (c) => { 
   const ai = new Ai(c.env.AI);
-  const question = c.req.query('text') || "¿Cuánto es la raiz cuadrada de 64?"
+  const question = c.req.query('text') || "¿puedes hacer un cuadro / mapa con la información obtenida?"
   const embeddings = await ai.run('@cf/baai/bge-base-en-v1.5', { text: question })
   const vectors = embeddings.data[0]
   const SIMILARITY_CUTOFF = 0.75
@@ -54,8 +55,8 @@ app.get('/', async (c) => {
     ? `Context:\n${notes.map(note => `- ${note}`).join("\n")}`
     : ""
   const systemPrompt = `Cuando respondas una pregunta o respondas, uusa el contexto provisto, si este resulta relevante, como la direccion anterior o nombre completo`
-  const { response: answer } = await ai.run(
-    '@cf/meta/llama-2-7b-chat-int8',
+  const { response: answer } = await ai.run( // Ejecuta la Consulta al servidor!
+    '@cf/meta/llama-2-7b-chat-int8', //Usamos ese modelo por coste conveniencia y gratuito.
     {
       messages: [
         ...(notes.length ? [{ role: 'system', content: contextMessage }] : []),
