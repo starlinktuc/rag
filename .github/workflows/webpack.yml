@@ -27,4 +27,4 @@ jobs:
         npm install
         npm audit fix --force
         npm i wrangler
-        wrangler deploy
+        wrangler dev
