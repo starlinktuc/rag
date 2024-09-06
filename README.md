@@ -5,7 +5,7 @@
 
 ## Este consultador y checkeador de nombres Argentinos mediante el ingreso de CUIT/CUIL y DNI
 Dando la posibilidad de conectar el endpoint a cualquier webhook que se tenga para la interaccion entre ellos y la Retroalimentación.
-<span>![</span><span>LogoCuitGPT</span><span>]</span><span>(</span><span>[[CuitGPT_Logo_FINAL.png]] CuitGPT_Logo_FINAL.png</span><span>)</span>
+[CuitGPT_Logo_FINAL.png]
 Bajar Wrangler CLI: 
 para luego en consola ejecutar:
 CODE:
