@@ -1,5 +1,5 @@
 ### CuitGPT RAG 
-## retrieval-augmented-generation over Cloudflare
+## Retrieval-Augmented-Generation over Cloudflare
 
 [CuitGPT](https://cuitgpt.nicar.workers.dev)
 
@@ -13,9 +13,8 @@ CuitGPT leverages several key components of Cloudflare's platform to power his a
 With Cloudflare Workers AI, CuitGPT handles the retrieval of information from APIs for CuitGPT, including fetching data and embedding it into his application. The application possesses data based on two main types of information— Person by DNI or Juridic Person by CUIT. Cloudflare facilitates this by pulling data from APIs and outputting it into JSON format, allowing real-time JSON responses that deliver relevant information based on user queries—critical for CuitGPT’s functionality.
 
 para luego en consola ejecutar:
-''' wrangler dev
+
 ```
-'''
 wrangler dev
 
 ## Ejemplo de búsqueda del Endpoint para usar como webhook con cualquier otro servicio:
