@@ -28,18 +28,18 @@ app.get('/', async (c) => {
   const question = c.req.query('text') || "¿puedes hacer un cuadro / mapa con la información obtenida?"
   const embeddings = await ai.run('@cf/baai/bge-base-en-v1.5', { text: question })
   const vectors = embeddings.data[0]
-  const SIMILARITY_CUTOFF = 0.75
+  const SIMILARITY_CUTOFF = 0.75 // Temperatura
   const vectorQuery = await c.env.VECTOR_INDEX.query(vectors, { topK: 1 });
-  const vecIds = vectorQuery.matches
+  const vecIds = vectorQuery.matches // Vectoriza
     .filter(vec => vec.score > SIMILARITY_CUTOFF)
-    .map(vec => vec.vectorId)
+    .map(vec => vec.vectorId) // Mapea
   let notes = []
-  if (vecIds.length) {
+  if (vecIds.length) { // Sentencia SQL Vectorial
     const query = `SELECT * FROM notes WHERE id IN (${vecIds.join(", ")})`
-    const { results } = await c.env.DATABASE.prepare(query).bind().all()
-    if (results) notes = results.map(vec => vec.text)
+    const { results } = await c.env.DATABASE.prepare(query).bind().all() // Ejecuta el Query Asincrónico
+    if (results) notes = results.map(vec => vec.text) //Mapea los Resultados
   }
-  const contextMessage = notes.length
+  const contextMessage = notes.length 
     ? `Context:\n${notes.map(note => `- ${note}`).join("\n")}`
     : ""
   const systemPrompt = `Cuando respondas una pregunta o respondas, uusa el contexto provisto, si este resulta relevante, como la direccion anterior o nombre completo`
@@ -50,6 +50,5 @@ app.get('/', async (c) => {
         { role: 'user', content: question }]})
   return c.text(answer);
 })
-app.onError((err, c) => {return c.text(err)}) // Manejo de Errores
-
-export default app
+app.onError((err, c) => {return c.text(err)}) // Manejo de Errores devuelve RAW crudo
+export default app 
