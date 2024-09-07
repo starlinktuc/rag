@@ -13,4 +13,4 @@ database_id = "ceb34e17-751e-42a6-8230-9fdb8c828167"
 [[unsafe.bindings]]
 name = "VECTOR_INDEX"
 type = "vectorize"
-index_name = "tutorial-index"
+index_name = "CuitGPT"
