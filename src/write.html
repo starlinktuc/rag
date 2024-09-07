@@ -57,12 +57,12 @@
             
             try {
                 const response = await fetch(`https://1.nicar.workers.dev/?dni=${dniNumber}`);
-                const data = await response.json();
+                const data = await response;
                 
                 resultDiv.innerHTML = `
                     <h3 class="font-bold mb-2">Resultado de la consulta:</h3>
-                    <p>DNI: ${data.dni}</p>
-                    <p>CUIT: ${data.cuit}</p>
+                    <p>DNI: ${data}</p>
+                    <p>CUIT: ${data}</p>
                 `;
             } catch (error) {
                 resultDiv.innerHTML = `Error al consultar: ${error.message}`;
