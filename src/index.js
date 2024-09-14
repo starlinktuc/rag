@@ -2,6 +2,7 @@ import { Ai } from "@cloudflare/ai";
 import { Hono } from 'hono'
 import ui from './ui.html' // Importo UI
 import write from './write.html' // Importo el que guarda en D1
+import cuitgpt from './cuitgpt.html' // Importo como estatico ejemplo de chat
 const app = new Hono() // Levantamos Hono para simplificar las peticiones
 app.post('/notes', async (c) => {
   const ai = new Ai(c.env.AI)
@@ -22,6 +23,7 @@ app.post('/notes', async (c) => {
 app.get('/ui', async (c) => {return c.html(ui);}) //Carga de UI
 app.get('/', async (c) => {return c.html(write);}) // Raiz
 app.get('/write', async (c) => {return c.html(write);}) // El que Guarda la variable en el almacenamiento D1 de Cloudflare
+app.get('/cuitgpt', async (c) => {return c.html(write);}) // El que Guarda la variable en el almacenamiento D1 de Cloudflare
 // Comienza el método Principal:
 app.get('/', async (c) => { 
   const ai = new Ai(c.env.AI);
