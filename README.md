@@ -1,12 +1,12 @@
 ### CuitGPT RAG 
 ## Retrieval-Augmented-Generation over Cloudflare
-
 [CuitGPT](https://cuitgpt.nicar.workers.dev)
+![CuitGPT Logo](https://github.com/starlinktuc/rag/blob/main/CuitGPT_Logo.png)
 
 ## Este consultador y checkeador de nombres Argentinos mediante el ingreso de CUIT/CUIL y DNI
 Dando la posibilidad de conectar el endpoint a cualquier webhook que se tenga para la interaccion entre ellos y la Retroalimentación.
-![CuitGPT Logo](https://github.com/starlinktuc/rag/blob/main/CuitGPT_Logo.png)
-![CuitGPT Diagrama](https://github.com/starlinktuc/rag/blob/main/CuitGPT.png?raw=true)
+
+![CuitGPT Diagrama](https://github.com/starlinktuc/rag/blob/main/CuitGPT.png)
 
 <br>
 Bajar Wrangler CLI: 
