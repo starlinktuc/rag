@@ -1,11 +1,11 @@
 ### CuitGPT RAG 
 ## Retrieval-Augmented-Generation (Recuperación de Generación Aumentada sobre Cloudflare)
-[CuitGPT- RAG](https://cuit.nicar.workers.dev)
-![CuitGPT Logo](https://github.com/starlinktuc/rag/blob/main/CuitGPT_Logo.png)
-[Consulta EJEMPLO: https://cuitgpt.nicar.workers.dev/cuil?q=20317656506](https://cuitgpt.nicar.workers.dev/cuil?q=20317656506)
-## Consultador de nombres Argentinos mediante el ingreso de CUIT/CUIL y DNI
+[CuitGPT- RAG](https://cuit.nicar.workers.dev) <br>
+![CuitGPT Logo](https://github.com/starlinktuc/rag/blob/main/CuitGPT_Logo.png) <br>
+[Consulta EJEMPLO: https://cuitgpt.nicar.workers.dev/cuil?q=20317656506](https://cuitgpt.nicar.workers.dev/cuil?q=20317656506) <br>
+## Consultador de nombres Argentinos mediante el ingreso de CUIT/CUIL y DNI<br>
 Dando la posibilidad de conectar el endpoint a cualquier webhook que se tenga para la interaccion entre ellos y la Retroalimentación.
-
+<br>
 ![CuitGPT Diagrama](https://github.com/starlinktuc/rag/blob/main/CuitGPT.png)
 
 <br>
