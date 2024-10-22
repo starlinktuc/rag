@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { methodOverride } from 'hono/method-override'
 
-import notes from './notes.html'
+//import notes from './notes.html'
 import ui from './ui.html'
 import write from './write.html'
 
