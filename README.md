@@ -24,6 +24,9 @@ wrangler dev
 ###https://1.nicar.workers.dev/?dni=31765650
 {"PERSONA":"title=\"Ver detalles de AVILA ROMAN JAVIER\"","DNI":"="}
 31765650
+
+## Ejemplo 2:
+###https://cuitgpt.nicar.workers.dev/cuil?q=20317656506
 ```
 
 
