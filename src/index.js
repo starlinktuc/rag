@@ -65,7 +65,7 @@ app.get('/write', async (c) => {
 })
 
 app.get('/', async (c) => {
-  const question = c.req.query('text') || "Invita a ingresar el numero de CUIT en la web: https://cuit.nicar.workers.dev"
+  const question = c.req.query('text') || "Invita a ingresar el CUIT de 11 numeros en la web: https://cuit.nicar.workers.dev"
 
   const embeddings = await c.env.AI.run('@cf/baai/bge-base-en-v1.5', { text: question })
   const vectors = embeddings.data[0]
@@ -84,7 +84,9 @@ app.get('/', async (c) => {
     ? `Context:\n${notes.map(note => `- ${note}`).join("\n")}`
     : ""
 
-  const systemPrompt = `When answering the question or responding, use the context provided, if it is provided and relevant.`
+  const systemPrompt = `Cuando respondas ten en cuenta que: La Clave Única de Identificación Tributaria (CUIT) es un código con el que la AFIP identifica a trabajadores autónomos, comercios y empresas.
+Se compone de 11 dígitos: un prefijo de 2 dígitos aleatorios, de carácter genérico y no binario en términos de género. seguido por 8 dígitos que corresponden, en el caso de personas humanas, al número de Documento Nacional de Identidad (DNI), y en el caso de empresas al número de sociedad asignado. 1 dígito verificador.
+En el caso de las personas humanas coincidirá con el Código de Identificación Laboral (CUIL) otorgado por la Administración Nacional de la Seguridad Social (ANSES).`
 
   const { response: answer } = await c.env.AI.run(
     '@cf/meta/llama-2-7b-chat-int8',
