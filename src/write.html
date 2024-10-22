@@ -66,7 +66,7 @@
                 resultDiv.innerHTML = `
                     <h3 class="font-bold mb-2">Resultado de la consulta:</h3>
                     <p>DNI: </p>
-                    <p>CUIT: ${data || 'No disponible'}</p>
+                    <p>CUIT: ${data.json || 'No disponible'}</p>
                 `;
             } catch (error) {
                 resultDiv.innerHTML = `Error al consultar: ${error.message}`;
