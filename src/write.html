@@ -45,7 +45,6 @@
             <a href="/ui" class="text-blue-500 hover:underline">Volver al menú principal UI</a>
         </div>
     </div>
- 
     <script>
         async function queryDNI() {
             const inputText = document.getElementById('inputText').value;
@@ -65,13 +64,13 @@
                 
                 resultDiv.innerHTML = `
                     <h3 class="font-bold mb-2">Resultado de la consulta:</h3>
-                    <p>DNI: </p>
-                    <p>CUIT: ${data}</p>
+                    <p>DNI: ${data.dni}</p>
+                    <p>CUIT: ${data.cuit}</p>
+                    <p>Nombre: ${data.nombre}</p>
+                    <p>Impuestos: ${data.impuestos}</p>
+                    <p>Vencimientos: ${data.vencimientos}</p>
                 `;
             } catch (error) {
                 resultDiv.innerHTML = `Error al consultar: ${error.message}`;
             }
-        }
-    </script>
-</body>
-</html>
+        
