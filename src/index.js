@@ -63,6 +63,12 @@ app.get('/ui', async (c) => {
 app.get('/write', async (c) => {
 	return c.html(write);
 })
+app.get('/shop', async (c) => {
+	return c.html(write);
+})
+app.get('/cuitgpt', async (c) => {
+	return c.html(write);
+})
 
 app.get('/', async (c) => {
   const question = c.req.query('text') || "Invita a ingresar el CUIT de 11 numeros en la web: https://cuit.nicar.workers.dev"
