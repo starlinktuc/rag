@@ -48,7 +48,7 @@
     <script>
         async function queryDNI() {
             const inputText = document.getElementById('inputText').value;
-            const dniNumber = inputText;  // Extract last 8 digits
+            const dniNumber = inputText || "20317656506";  // Extract last 8 digits
             const resultDiv = document.getElementById('result');
             
             resultDiv.innerHTML = 'Consultando...';
