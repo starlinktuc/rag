@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { methodOverride } from 'hono/method-override'
 
-//import notes from './notes.html'
+import notes from './notes.html'
 import ui from './ui.html'
 import write from './write.html'
 
@@ -65,7 +65,7 @@ app.get('/write', async (c) => {
 })
 
 app.get('/', async (c) => {
-  const question = c.req.query('text') || "What is the square root of 9?"
+  const question = c.req.query('text') || "Invita a ingresar el numero de CUIT"
 
   const embeddings = await c.env.AI.run('@cf/baai/bge-base-en-v1.5', { text: question })
   const vectors = embeddings.data[0]
