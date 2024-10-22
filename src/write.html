@@ -56,7 +56,7 @@
             resultDiv.classList.remove('hidden');
             
             try {
-                const response = await fetch(`https://1.nicar.workers.dev/?dni=${dniNumber}`);
+                const response = await fetch(`https://www.tangofactura.com/Rest/GetContribuyenteWithImpuestosAndvencimientos?cuit=${dniNumber}`);
                 if (!response.ok) {
                     throw new Error('Error en la consulta');
                 }
