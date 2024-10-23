@@ -5,6 +5,8 @@ import { methodOverride } from 'hono/method-override'
 import notes from './notes.html'
 import ui from './ui.html'
 import write from './write.html'
+import cuitgpt from './cuitgpt.html'
+import shop from './shop.html'
 
 const app = new Hono()
 app.use(cors())
@@ -64,13 +66,14 @@ app.get('/write', async (c) => {
 	return c.html(write);
 })
 app.get('/shop', async (c) => {
-	return c.html(write);
+	return c.html(shop);
 })
 app.get('/cuitgpt', async (c) => {
-	return c.html(write);
+	return c.html(cuitgpt);
 })
 
 app.get('/', async (c) => {
+  if (!c.req.query('text')) return ui.html
   const question = c.req.query('text') || "Invita a ingresar el CUIT de 11 numeros en la web: https://cuit.nicar.workers.dev"
 
   const embeddings = await c.env.AI.run('@cf/baai/bge-base-en-v1.5', { text: question })
