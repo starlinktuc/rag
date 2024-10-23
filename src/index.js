@@ -73,7 +73,7 @@ app.get('/cuitgpt', async (c) => {
 })
 
 app.get('/', async (c) => {
-  if (!c.req.query('text')) return ui.html
+  if (!c.req.query('text')) return c.html(ui);
   const question = c.req.query('text') || "Invita a ingresar el CUIT de 11 numeros en la web: https://cuit.nicar.workers.dev"
 
   const embeddings = await c.env.AI.run('@cf/baai/bge-base-en-v1.5', { text: question })
