@@ -18,7 +18,7 @@
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            max-width: 1800px;
             width: 100%;
         }
 
@@ -78,14 +78,14 @@
     <div class="container">
         <h1>CuitGPT RAG</h1>
         <h4>Consulta DNI / CUIT o CUIL de Argentina con datos públicos.</h4>
-        <form hx-get="/" hx-trigger="submit" hx-target="#result" hx-post="/notes" hx-ext='json-enc'>
+        <form hx-post="/notes" hx-trigger="submit" hx-ext='json-enc' hx-get="/" hx-target="#result" >
           <textarea name="text" required="true" placeholder="Ingesa tu CUIT"></textarea>
           <button type="submit">Enviar</button>
         </form>
-      
+
         <p id="result"></p>
-        
-        
+
+
         <div>
             <a href="/write" class="small">
                 + Consultar CUIT (RAG) Retrieval Augmented Generation
