@@ -1,77 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuitGPT RAG - Escribiendo un CUIT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+  <meta charset="UTF-8">
+  <title>CuitGPT | RAG</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 class="text-3xl font-bold text-center text-blue-600 mb-2">CuitGPT</h1>
-        <h2 class="text-xl text-center text-gray-600 mb-6">Retrieval Augmented Generation (RAG)</h2>
-        
-        <form hx-post="/notes" hx-trigger="submit" hx-ext='json-enc' class="space-y-4">
-            <textarea 
-                id="inputText"
-                name="text" 
-                required 
-                placeholder="20317656506" 
-                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                rows="3"
-            ></textarea>
-            <div class="flex space-x-2">
-                <button 
-                    type="submit" 
-                    class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
-                >
-                    Enviar
-                </button>
-                <button 
-                    type="button"
-                    onclick="queryDNI()"
-                    class="flex-1 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300"
-                >
-                    Consultar DNI
-                </button>
-            </div>
-        </form>
-        
-        <div id="result" class="mt-4 p-3 bg-gray-100 rounded-md hidden"></div>
-        
-        <div class="mt-6 text-center">
-            <a href="/ui" class="text-blue-500 hover:underline">Volver al menú principal UI</a>
-        </div>
-    </div>
- 
-    <script>
-        async function queryDNI() {
-            const inputText = document.getElementById('inputText').value;
-            const dniNumber = inputText;  // Extract last 8 digits
-            const resultDiv = document.getElementById('result');
-            
-            resultDiv.innerHTML = 'Consultando...';
-            resultDiv.classList.remove('hidden');
-            
-            try {
-                const response = await fetch("https://www.tangofactura.com/Rest/GetContribuyenteWithImpuestosAndvencimientos?cuit=20317656506");
-                if (!response.ok) {
-                    throw new Error('Error en la consulta');
-                }
-                
-                const data = await response.json();  // Parse the JSON data
-                
-                resultDiv.innerHTML = `
-                    <h3 class="font-bold mb-2">Resultado de la consulta:</h3>
-                    <p>DNI: </p>
-                    <p>CUIT: ${response.json()}</p>
-                `;
-            } catch (error) {
-                resultDiv.innerHTML = `Error al consultar: ${error.message}`;
-            }
-        }
-    </script>
+
+<body>
+  <h1>Busca un CUIT:</h1>
+
+	<p>
+    <small>
+			<a href="/ui">ChatGPT</a> ・ ・ <a href="/write">Nueva Búsqueda</a>
+    </small>
+	</p>
+
+  <form hx-post="/notes" hx-trigger="submit" hx-ext='json-enc'>
+    <textarea name="text" required="true" placeholder="IngresaCUIT"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
 </body>
+
 </html>
