@@ -67,7 +67,33 @@ app.get('/', async (c) => {// Comienza el método Principal:
     '@cf/meta/llama-2-7b-chat-int8',{
       messages: [...(notes.length ? [{ role: 'system', content: contextMessage }] : []),{ role: 'system', content: systemPrompt }, { role: 'user', content: question }]}
   )
-  return c.text(answer);
+  //Extra desde otro JS
+  const baseUrl = "https://www.tangofactura.com/Rest/GetContribuyenteWithImpuestosAndvencimientos?cuit=";
+    // Extrae el CUIT de la consulta del request, si se proporciona como parámetro
+    const url = new URL(request.url);
+    const cuit = url.searchParams.get("text") || "0"; // Usa un CUIT por defecto si no se proporciona
+     // Construye la URL completa para la búsqueda
+     const searchUrl = `${baseUrl}${cuit}`;
+     try {
+      // Realiza la solicitud de búsqueda al sitio
+      const response = await fetch(searchUrl);
+       // Verifica que la respuesta sea exitosa
+      if (!response.ok) {
+         return new Response("Error al buscar el CUIT"+ searchUrl, { status: response.status });
+       }
+       // Obtiene el contenido HTML de la respuesta
+      const html = await response.text();
+      // Extrae los datos deseados del HTML
+      const data = extractDataFromHtml(html);
+      // Devuelve los datos extraídos como respuesta
+      return new Response(JSON.stringify(data), {
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+     // Maneja cualquier error que ocurra durante la solicitud
+     //return new Response(`Error: ${error.message}`, { status: 500 });
+   }
+  return c.text(answer+JSON.stringify(data));
 })
 app.onError((err, c) => {
   return c.text(err)
