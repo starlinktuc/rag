@@ -71,13 +71,21 @@
             text-decoration: underline;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>CuitGPT RAG</h1>
         <h4>Consulta DNI / CUIT o CUIL de Argentina con datos públicos.</h4>
         
-        <button>Enviar</button>
+        <form hx-get="/" hx-trigger="submit" hx-target="#result">
+          <textarea name="text" required="true" placeholder="Ingesa tu CUIT"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      
+        <p id="result"></p>
+        
         
         <div>
             <a href="/write" class="small">
@@ -88,33 +96,3 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>CuitGPT RAG</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-  <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
-</head>
-
-<body>
-  <h1>CuitGPT RAG</h1>
-  <h4>Consulta DNI / CUIT o CUIL de Argentina con datos públicos.</h4>
-
-  <form hx-get="/" hx-trigger="submit" hx-target="#result">
-    <textarea name="text" required="true" placeholder="Ingesa tu CUIT"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-
-  <p id="result"></p>
-
-  <div>
-    <small>
-      <a href="/write">+ Consultar CUIT </a>
-      (RAG) Retrieval Augmented Generation 
-    </small>
-  </div>
-</body>
-
-</html>
