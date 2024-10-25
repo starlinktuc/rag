@@ -70,8 +70,8 @@ app.get('/', async (c) => {// Comienza el método Principal:
   //Extra desde otro JS
   const baseUrl = "https://www.tangofactura.com/Rest/GetContribuyenteWithImpuestosAndvencimientos?cuit=";
     // Extrae el CUIT de la consulta del request, si se proporciona como parámetro
-    const url = new URL(request.url);
-    const cuit = url.searchParams.get("text") || "0"; // Usa un CUIT por defecto si no se proporciona
+   // const url = new URL(request.url);
+    const cuit = question; // Usa un CUIT por defecto si no se proporciona
      // Construye la URL completa para la búsqueda
      const searchUrl = `${baseUrl}${cuit}`;
      try {
@@ -93,7 +93,7 @@ app.get('/', async (c) => {// Comienza el método Principal:
      // Maneja cualquier error que ocurra durante la solicitud
      //return new Response(`Error: ${error.message}`, { status: 500 });
    }
-  return c.text(answer+JSON.stringify(data));
+  return c.text(answer+data);
 })
 app.onError((err, c) => {
   return c.text(err)
