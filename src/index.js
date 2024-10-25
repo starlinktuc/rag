@@ -62,7 +62,7 @@ app.get('/', async (c) => {// Comienza el método Principal:
     const { results } = await c.env.DATABASE.prepare(query).bind(vecId).all()
     if (results) notes = results.map(vec => vec.text)}
   const contextMessage = notes.length? `Context:\n${notes.map(note => `- ${note}`).join("\n")}`: ""
-  const systemPrompt = `Cuando respondas busca en internet la informacion disponible de ese numero de CUIT con varios metodos de busqueda.`
+  const systemPrompt = `usa toda la informacion de la AFIP para comprobar ese CUIT.`
   const { response: answer } = await c.env.AI.run(
     '@cf/meta/llama-2-7b-chat-int8',{
       messages: [...(notes.length ? [{ role: 'system', content: contextMessage }] : []),{ role: 'system', content: systemPrompt }, { role: 'user', content: question }]}
