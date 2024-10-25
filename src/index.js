@@ -77,10 +77,6 @@ app.get('/', async (c) => {// Comienza el método Principal:
      try {
       // Realiza la solicitud de búsqueda al sitio
       const response = await fetch(searchUrl);
-       // Verifica que la respuesta sea exitosa
-      if (!response.ok) {
-         return new Response("Error al buscar el CUIT"+ searchUrl, { status: response.status });
-       }
        // Obtiene el contenido HTML de la respuesta
       const html = await response.text();
       // Extrae los datos deseados del HTML
