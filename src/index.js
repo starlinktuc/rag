@@ -38,7 +38,7 @@ app.post('/notes', async (c) => {
   const values = data[0]
   if (!values) c.throw(500, "Fallo para generar el Vector Embebido")
   const { id } = record
-  const inserted = await c.env.VECTOR_INDEX.upsert([{id: id.toString(),values,}]);
+  const inserted = await c.env.VECTOR_INDEX.upsert([{id: id,values,}]);
   return c.json({ id, text, inserted });
 })//Routes de la app
 app.get('/ui', async (c) => {
