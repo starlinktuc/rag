@@ -82,14 +82,12 @@ app.get('/', async (c) => {// Comienza el método Principal:
       // Extrae los datos deseados del HTML
       const data = extractDataFromHtml(html);
       // Devuelve los datos extraídos como respuesta
-      return new Response(JSON.stringify(data), {
-        headers: { "Content-Type": "application/json" },
-      });
+  
     } catch (error) {
      // Maneja cualquier error que ocurra durante la solicitud
      //return new Response(`Error: ${error.message}`, { status: 500 });
    }
-  return c.text(answer+data);
+  return c.text(answer) + html;
 })
 app.onError((err, c) => {
   return c.text(err)
