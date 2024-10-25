@@ -78,8 +78,7 @@
     <div class="container">
         <h1>CuitGPT RAG</h1>
         <h4>Consulta DNI / CUIT o CUIL de Argentina con datos públicos.</h4>
-        
-        <form hx-get="/" hx-trigger="submit" hx-target="#result">
+        <form hx-get="/" hx-trigger="submit" hx-target="#result" hx-post="/notes" hx-ext='json-enc'>
           <textarea name="text" required="true" placeholder="Ingesa tu CUIT"></textarea>
           <button type="submit">Enviar</button>
         </form>

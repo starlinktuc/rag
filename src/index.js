@@ -7,7 +7,6 @@ import notes from './notes.html'
 import ui from './ui.html'
 import write from './write.html'
 import cuitgpt from './cuitgpt.html'
-import shop from './shop.html'
 
 const app = new Hono()
 app.use(cors())
@@ -45,12 +44,8 @@ app.post('/notes', async (c) => {
 app.get('/ui', async (c) => {
 	return c.html(ui);
 })
-
 app.get('/write', async (c) => {
 	return c.html(write);
-})
-app.get('/shop', async (c) => {
-	return c.html(shop);
 })
 app.get('/cuitgpt', async (c) => {
 	return c.html(cuitgpt);
