@@ -1,4 +1,4 @@
-### CuitGPT RAG 
+### CuitGPT RAG
 ## Retrieval-Augmented-Generation (Recuperación de Generación Aumentada sobre Cloudflare)
 [CuitGPT- RAG](https://cuit.nicar.workers.dev) <br>
 ![CuitGPT Logo](https://github.com/starlinktuc/rag/blob/main/CuitGPT_Logo.png) <br>
@@ -9,7 +9,7 @@ Dando la posibilidad de conectar el endpoint a cualquier webhook que se tenga pa
 ![CuitGPT Diagrama](https://github.com/starlinktuc/rag/blob/main/CuitGPT.png)
 
 <br>
-Bajar Wrangler CLI: 
+Bajar Wrangler CLI:
 
 
 CuitGPT leverages several key components of Cloudflare's platform to power his application. CuitGPT RAG (Retrieval-Augmented Generation) app utilizes the @cf/baai/bge-base-en-v1.5 embeddings model and showcases Cloudflare’s capabilities in enhancing AI-driven services.
@@ -28,6 +28,11 @@ wrangler dev
 ## Ejemplo 2:
 ###https://cuitgpt.nicar.workers.dev/cuil?q=20317656506
 ```
+
+## (Nuevo) WorkFlows por Consola:  npx wrangler workflows instances describe workflows-starter latest  <br>
+![Workflows Screenshot](https://github.com/starlinktuc/rag/blob/main/workflows.png) <br>
+
+
 
 
 ---
