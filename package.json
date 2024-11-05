@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "wrangler deploy",
 		"d": "wrangler deploy",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
 		"s": "wrangler dev"
   },
   "devDependencies": {
