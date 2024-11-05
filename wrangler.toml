@@ -1,6 +1,6 @@
 name = "cuit"
-#main = "src/index.js"
-main = "src/index.ts"
+main = "src/index.js"
+#main = "src/index.ts"
 compatibility_date = "2024-01-10"
 
 [observability]
