@@ -29,12 +29,12 @@ wrangler dev
 ###https://cuitgpt.nicar.workers.dev/cuil?q=20317656506
 ```
 
-## (Nuevo) WorkFlows por Consola:  <br>
+## (Nuevo) WorkFlows por Consola:
 ```
 npx wrangler workflows instances describe workflows-starter latest 
 ```
- <br>
-![Workflows Screenshot](https://github.com/starlinktuc/rag/blob/main/workflows.png) <br>
+
+![Workflows Screenshot](https://github.com/starlinktuc/rag/blob/main/workflows.png)
 
 
 
